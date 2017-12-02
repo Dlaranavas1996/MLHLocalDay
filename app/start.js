@@ -3,6 +3,8 @@ var http = require('http');
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end('Hello World!');
+
+    
 }).listen(8080);
 
 const Clarifai = require('clarifai');
@@ -13,9 +15,13 @@ const app = new Clarifai.App({
 
 {/* <script type='text/javascript' src="https://sdk.clarifai.com/js/clarifai-latest.js" /> */}
 
-app.models.predict(Clarifai.GENERAL_MODEL, 'https://samples.clarifai.com/metro-north.jpg').then(
+app.models.predict(Clarifai.GENERAL_MODEL, 'C:\\Users\daniel\Downloads\tux.jpg').then(
     function(response) {
-      console.log(response);
+    //   response.forEach(function(x) {
+    //    console.log(x)
+    //  });
+     console.log(response);
+  
     },
     function(err) {
       console.error(err);
